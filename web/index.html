@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fix Tournament</title>
+  <meta name="description" content="Give it a failing test. Many Nemotron agents race to fix it. The tests pick the winner.">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">
+      <img src="assets/mark.svg" alt="">
+      <span class="wordmark">Fix <b>Tournament</b></span>
+    </div>
+    <ol class="phases" id="phases" aria-label="Progress">
+      <li data-phase="reproduce"><span class="n">01</span>Reproduce</li>
+      <li data-phase="diagnose"><span class="n">02</span>Diagnose</li>
+      <li data-phase="race"><span class="n">03</span>Race</li>
+      <li data-phase="verify"><span class="n">04</span>Verify</li>
+      <li data-phase="judge"><span class="n">05</span>Review</li>
+    </ol>
+    <div class="meta">
+      <span class="badge" id="srcBadge">idle</span>
+      <span class="clock" id="clock">00:00.0</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="dossier" aria-label="Case file">
+      <img class="banner" src="assets/circuit.svg" alt="">
+      <div class="block">
+        <span class="label">Case</span>
+        <div class="cases" id="cases"></div>
+      </div>
+      <div class="block">
+        <span class="label">Race settings</span>
+        <div class="opts">
+          <div class="opt">
+            <div class="seg" id="sizeSeg" role="group" aria-label="Field size">
+              <button data-v="4" aria-pressed="false">4 cars</button>
+              <button data-v="6" aria-pressed="false">6 cars</button>
+              <button data-v="8" aria-pressed="true">8 cars</button>
+            </div>
+          </div>
+          <div class="opt">
+            <div class="seg" id="modeSeg" role="group" aria-label="Format">
+              <button data-v="qualify" aria-pressed="true">Qualify</button>
+              <button data-v="sprint" aria-pressed="false">Sprint</button>
+            </div>
+            <p class="hint" id="modeHint"></p>
+          </div>
+          <div class="opt">
+            <div class="seg" id="srcSeg" role="group" aria-label="Model source">
+              <button data-v="replay" aria-pressed="false">Replay</button>
+              <button data-v="live" aria-pressed="false">Live</button>
+            </div>
+            <p class="hint" id="srcHint"></p>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="btnrow">
+          <button class="btn" id="startBtn">Start the race</button>
+          <button class="btn ghost" id="cancelBtn" hidden>Stop</button>
+        </div>
+      </div>
+      <div class="block" id="reproBlock" hidden></div>
+      <div class="block diagnosis" id="diagBlock" hidden></div>
+      <div class="block issue" id="issueBlock"></div>
+      <div class="block" id="customBlock" hidden>
+        <details class="custom">
+          <summary>Bring your own repository</summary>
+          <div class="form">
+            <input id="cRepo" placeholder="https://github.com/owner/repo" autocomplete="off">
+            <input id="cIssue" placeholder="Issue URL (optional)" autocomplete="off">
+            <input id="cCmd" placeholder="Test command (default: pytest -q)" autocomplete="off">
+            <p class="hint">Runs the repository's tests on this server. Python and pytest only. Live mode.</p>
+          </div>
+        </details>
+      </div>
+    </aside>
+
+    <section class="trackwrap" aria-label="Race">
+      <div class="trackhead" id="trackHead" hidden>
+        <span class="label" style="text-align:center">#</span>
+        <span class="label">Contestant</span>
+        <div class="course-labels"><span>Read</span><span>Patch</span><span>Test</span><span>Green</span></div>
+        <span class="label">Tests</span>
+        <span class="label">Patch</span>
+        <span class="label">Status</span>
+      </div>
+      <div id="errorSlot"></div>
+      <div class="empty" id="empty">
+        <img src="assets/grid.svg" alt="">
+        <div>
+          <h2>Eight agents. One failing test. The suite decides.</h2>
+        </div>
+        <ol class="steps">
+          <li><span class="n">01</span><b>Reproduce</b><span>The failing tests are run on the untouched repo to prove the bug is real.</span></li>
+          <li><span class="n">02</span><b>Diagnose</b><span>Nemotron Ultra reads the failure and writes down what a correct fix must guarantee.</span></li>
+          <li><span class="n">03</span><b>Race</b><span>Nano and Super contestants patch in parallel, each iterating on its own test failures.</span></li>
+          <li><span class="n">04</span><b>Verify</b><span>The best green patch is re-run three times, checked for tampering, and reviewed by Ultra.</span></li>
+        </ol>
+      </div>
+      <div class="lanes" id="lanes"></div>
+      <div class="legend" id="legend" hidden>
+        <span><i class="tier nano"></i>Nemotron Nano</span>
+        <span><i class="tier super"></i>Nemotron Super</span>
+        <span><i class="tier ultra"></i>Nemotron Ultra (diagnosis and review)</span>
+        <span style="margin-left:auto">Select a lane to inspect its attempts</span>
+      </div>
+    </section>
+
+    <aside class="side" aria-label="Details">
+      <div class="tabs" role="tablist">
+        <button role="tab" id="tabFeed" aria-selected="true">Race feed</button>
+        <button role="tab" id="tabAtt" aria-selected="false">Attempts</button>
+      </div>
+      <div class="pane" id="paneFeed"><div class="feed-empty">Events appear here as the race unfolds.</div></div>
+      <div class="pane" id="paneAtt" hidden><div class="pane-empty">Select a lane to read its attempts, diffs and test output.</div></div>
+    </aside>
+  </main>
+
+  <section class="verdict" id="verdict" hidden></section>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 190" width="640" height="190" role="img" aria-label="Stylised circuit map">
+  <defs>
+    <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#202327" stroke-width="1"/>
+    </pattern>
+    <clipPath id="c"><rect width="640" height="190"/></clipPath>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="640" height="190" fill="#101113"/>
+    <rect width="640" height="190" fill="url(#g)"/>
+    <!-- contour hints -->
+    <g fill="none" stroke="#1b1d20" stroke-width="1">
+      <path d="M-10 160C80 120 140 190 250 170S420 120 520 175 640 150 660 140"/>
+      <path d="M-10 30C90 60 170 10 280 22S450 70 540 20 640 40 660 36"/>
+      <ellipse cx="318" cy="96" rx="64" ry="26"/>
+      <ellipse cx="318" cy="96" rx="40" ry="15"/>
+    </g>
+    <!-- track -->
+    <path id="t" d="M70 120C70 70 120 40 190 48C260 56 280 100 340 100C400 100 420 40 490 36C560 32 600 70 585 112C572 146 520 156 470 146C420 136 390 150 340 158C270 168 200 164 140 152C96 144 70 136 70 120Z"
+          fill="none" stroke="#2b2e33" stroke-width="17" stroke-linejoin="round"/>
+    <path d="M70 120C70 70 120 40 190 48C260 56 280 100 340 100C400 100 420 40 490 36C560 32 600 70 585 112C572 146 520 156 470 146C420 136 390 150 340 158C270 168 200 164 140 152C96 144 70 136 70 120Z"
+          fill="none" stroke="#17191b" stroke-width="13" stroke-linejoin="round"/>
+    <path d="M70 120C70 70 120 40 190 48C260 56 280 100 340 100C400 100 420 40 490 36C560 32 600 70 585 112C572 146 520 156 470 146C420 136 390 150 340 158C270 168 200 164 140 152C96 144 70 136 70 120Z"
+          fill="none" stroke="#3b4046" stroke-width="1" stroke-dasharray="3 6"/>
+    <!-- start / finish -->
+    <g transform="translate(70 120)">
+      <rect x="-9" y="-2" width="4.5" height="4" fill="#f0b429"/><rect x="-4.5" y="-2" width="4.5" height="4" fill="#0c0d0e"/>
+      <rect x="0" y="-2" width="4.5" height="4" fill="#f0b429"/><rect x="4.5" y="-2" width="4.5" height="4" fill="#0c0d0e"/>
+    </g>
+    <!-- sector ticks -->
+    <g stroke="#f0b429" stroke-width="1.5">
+      <path d="M338 91V109"/><path d="M522 38V58" transform="rotate(-8 522 48)"/>
+    </g>
+    <!-- field -->
+    <g>
+      <circle cx="190" cy="48" r="4.5" fill="#7fb6d9"/>
+      <circle cx="235" cy="62" r="4.5" fill="#d98f6a"/>
+      <circle cx="340" cy="100" r="4.5" fill="#7fb6d9"/>
+      <circle cx="404" cy="88" r="4.5" fill="#d98f6a"/>
+      <circle cx="585" cy="112" r="4.5" fill="#7fb6d9"/>
+      <circle cx="352" cy="158" r="4.5" fill="#d98f6a"/>
+    </g>
+    <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9" fill="#6c7279" letter-spacing="1.2">
+      <text x="86" y="104">START</text>
+      <text x="300" y="82">S1</text>
+      <text x="528" y="28">S2</text>
+      <text x="486" y="178">S3</text>
+      <text x="14" y="180" fill="#4b5056">READ  PATCH  TEST  GREEN</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "title": "intervals: merge drops overlaps",
+  "summary": "An interval-merging helper that loses ranges, which also corrupts a calendar free-slot finder built on it.",
+  "issue": {
+    "ref": "intervals#118",
+    "title": "merge_intervals() shrinks overlapping ranges and ignores touching ones",
+    "body": "Calendar free-slot suggestions are wrong when meetings overlap.\n\nmerge_intervals([(1, 3), (2, 6)])\n  got       [(1, 3)]\n  expected  [(1, 6)]\n\nmerge_intervals([(1, 2), (2, 3)])\n  got       [(1, 2), (2, 3)]\n  expected  [(1, 3)]\n\ntotal_covered([(0, 5), (3, 8)])\n  got       5\n  expected  8\n\nThe docstring says touching intervals merge and the result should cover the whole union. find_free_slots() inherits the bug and offers time that is actually booked."
+  },
+  "test_cmd": "pytest -q",
+  "timeout": 6,
+  "order": 2
+}

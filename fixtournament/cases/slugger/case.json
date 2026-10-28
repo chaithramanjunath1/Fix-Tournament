@@ -1,0 +1,12 @@
+{
+  "title": "slugger: separators leak into slugs",
+  "summary": "A slug library that produces doubled, leading, trailing and dangling separators.",
+  "issue": {
+    "ref": "slugger#41",
+    "title": "slugify() leaves doubled and dangling separators",
+    "body": "Titles with extra spacing or punctuation produce ugly URLs.\n\nslugify(\"hello --  world\")\n  got       hello----world\n  expected  hello-world\n\nslugify(\"  --Hi there--  \")\n  got       --hi-there--\n  expected  hi-there\n\nslugify(\"a-b c\", sep=\"_\")\n  got       a-b_c\n  expected  a_b_c\n\nslugify(\"hello world again\", max_length=6)\n  got       hello-\n  expected  hello\n\nA separator should never sit at either end of a slug, runs of separators should collapse into one, and hyphens in the input should become the chosen separator."
+  },
+  "test_cmd": "pytest -q",
+  "timeout": 20,
+  "order": 1
+}

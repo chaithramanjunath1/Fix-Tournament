@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 250" width="560" height="250" role="img" aria-label="Empty starting grid">
+  <g fill="none" stroke="#2a2d31" stroke-width="1.25">
+    <path d="M30 20H530" stroke-dasharray="2 7"/>
+  </g>
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" letter-spacing="1.2" fill="#5b6168">
+    <g id="slots" stroke="#34383d" stroke-width="1.25" fill="#121315">
+      <rect x="90"  y="48"  width="120" height="26"/><text x="100" y="65" stroke="none">P1</text>
+      <rect x="350" y="48"  width="120" height="26" stroke-dasharray="4 4"/><text x="360" y="65" stroke="none">P2</text>
+      <rect x="90"  y="86"  width="120" height="26" stroke-dasharray="4 4"/><text x="100" y="103" stroke="none">P3</text>
+      <rect x="350" y="86"  width="120" height="26" stroke-dasharray="4 4"/><text x="360" y="103" stroke="none">P4</text>
+      <rect x="90"  y="124" width="120" height="26" stroke-dasharray="4 4"/><text x="100" y="141" stroke="none">P5</text>
+      <rect x="350" y="124" width="120" height="26" stroke-dasharray="4 4"/><text x="360" y="141" stroke="none">P6</text>
+      <rect x="90"  y="162" width="120" height="26" stroke-dasharray="4 4"/><text x="100" y="179" stroke="none">P7</text>
+      <rect x="350" y="162" width="120" height="26" stroke-dasharray="4 4"/><text x="360" y="179" stroke="none">P8</text>
+    </g>
+  </g>
+  <g>
+    <rect x="90" y="48" width="120" height="26" fill="none" stroke="#f0b429" stroke-width="1.25"/>
+    <path d="M196 61l-6-5v10z" fill="#f0b429"/>
+  </g>
+  <g fill="#f0b429">
+    <rect x="270" y="30" width="10" height="10"/><rect x="290" y="30" width="10" height="10"/>
+    <rect x="280" y="40" width="10" height="10"/><rect x="260" y="40" width="10" height="10" fill="#17191b"/>
+  </g>
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" letter-spacing="1.4" fill="#6c7279">
+    <text x="228" y="226">STARTING GRID</text>
+  </g>
+</svg>
