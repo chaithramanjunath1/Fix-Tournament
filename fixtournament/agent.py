@@ -157,7 +157,7 @@ def run_contestant(ctx: RaceContext, c: Contestant) -> Outcome:
         ]
         try:
             res = ctx.llm.complete(model=model, messages=messages, temperature=c.temperature,
-                                   max_tokens=2048, role="patch", cid=c.id, turn=turn)
+                                   max_tokens=4096, role="patch", cid=c.id, turn=turn)
         except LLMError as exc:
             return finish("error", str(exc))
         out.tokens_in += res.tokens_in
