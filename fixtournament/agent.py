@@ -25,22 +25,17 @@ STRATEGIES = {
     "refactor": ("Refactor", "If the structure of the code is what causes the bug, restructure the affected function cleanly. Keep public behaviour and signatures."),
 }
 
-SYSTEM = """You are a careful senior engineer fixing a bug in a small Python repository.
-You are given an issue, a failing test run, a colleague's diagnosis and the repository sources.
-
-Reply with edit blocks in exactly this format, one block per change:
+SYSTEM = """You are an automated code-patching engine.
+Output ONLY the edit block below. Do NOT write any introduction, thinking, explanation, or markdown code fences (```).
+Start your response immediately on line 1 with "FILE:":
 
 FILE: path/relative/to/repo.py
 <<<<<<< SEARCH
-exact existing lines to replace (must match the file once, character for character)
+exact existing lines to replace
 =======
 replacement lines
 >>>>>>> REPLACE
-
-Rules:
-- Never edit tests, conftest.py or pytest configuration. Fix the code, not the checks.
-- Keep each SEARCH block short but unique.
-- At most one sentence of explanation before the first block, nothing after the last."""
+"""
 
 
 @dataclass
